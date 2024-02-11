@@ -55,13 +55,14 @@ int main (int argc, const char * argv[])
         log << "Failed to train model!" << endl;
         return EXIT_FAILURE;
     }
-    
-    if( !ctree.save(std::fstream("Model.grt")) ){
+
+    auto out = std::fstream("Model.grt");
+    if( !ctree.save(out) ){
         log << "Failed to train model!" << endl;
         return EXIT_FAILURE;
     }
 	
-    if( !ctree.load(std::fstream("Model.grt")) ){
+    if( !ctree.load(out) ){
         log << "Failed to train model!" << endl;
         return EXIT_FAILURE;
     }
